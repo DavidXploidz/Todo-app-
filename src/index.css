@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --fuente: font-family: 'Josefin Sans', sans-serif;;
+  
+  /* ## Colors */
+
+  /* ### Primary */
+
+  --BrightBlue: hsl(220, 98%, 61%);
+  --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+
+  /* ### Neutral */
+
+  /* ### Light Theme */
+
+  --VeryLightGray: hsl(0, 0%, 98%);
+  --VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LightGrayishBlue: hsl(233, 11%, 84%);
+  --DarkGrayishBlue: hsl(236, 9%, 61%);
+  --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  /* ### Dark Theme */
+
+  --VeryDarkBlue: hsl(235, 21%, 11%);
+  --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --LightGrayishBlue: hsl(234, 39%, 85%);
+  --LightGrayishBlue : hsl(236, 33%, 92%); /*(hover)*/
+  --DarkGrayishBlue2: hsl(234, 11%, 52%);
+  --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --VeryDarkGrayishBlue2: hsl(237, 14%, 26%);
+}
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body{
+  font-family: var(--fuente);
+  font-size: 18px;
+  background-color: var(--VeryLightGray);
+}
+/** Utilidades **/
+.contenedor{
+  max-width: 375px;
+  width: 95%;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) {
+  .contenedor{
+      max-width: 120rem;
+      width: 95%;
+      margin: 0 auto;
+  }
+}
+
+/*Header Component*/
+.header{
+  position: relative;
+  background-image: url(./images/bg-mobile-light.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 40rem;
+  width: 100%;
+  z-index: -1;
+}
+.hacia-arriba{
+  margin-top: -30rem;
+}
+.hacia-abajo{
+  margin-top: 2rem;
+}
