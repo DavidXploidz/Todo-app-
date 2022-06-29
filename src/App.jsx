@@ -11,6 +11,7 @@ function App() {
   const [active, setActive] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [all, setAll] = useState(true)
+  const [darkModeActivo, setDarkModeActivo] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,23 +70,23 @@ function App() {
 
   }
   return (
-    <main>
-      <Header/>
-      <div className="mb-10 contenedor bg-white shadow-xl p-5 rounded-lg hacia-arriba ">
-        <form onSubmit={handleSubmit} className="flex justify-between ">
+    <main className={`${darkModeActivo ? 'bg-VeryDarkBlue h-screen' : 'h-screen'}`}>
+      <Header darkModeActivo={darkModeActivo} setDarkModeActivo = {setDarkModeActivo} />
+      <div className={`mb-10 contenedor bg-white shadow-xl p-5 rounded-lg hacia-arriba ${darkModeActivo ? 'bg-VeryDarkGrayishBlue2' : ''} `}>
+        <form onSubmit={handleSubmit} className={`flex justify-between`}>
         <input 
               type="text" 
               placeholder="Create a new todo..." 
-              className="w-full focus:outline-none" 
+              className={`w-full focus:outline-none ${darkModeActivo ? 'bg-VeryDarkGrayishBlue2 text-gray-300' : ''}`}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          <button type="submit"><CgEnter  size={50}/></button>
+          <button type="submit" className={`${darkModeActivo ? 'text-gray-500' : ''}`}><CgEnter  size={50}/></button>
         </form>
       </div>
       {/*Contenedor de resultados despues de ingresar una tarea por hacer */}
       {list.length > 0 && (
-        <div className="bg-white contenedor shadow-xl py-5 rounded-lg hacia-abajo ">
+        <div className={`bg-white contenedor shadow-xl py-5 rounded-lg hacia-abajo ${darkModeActivo && 'bg-VeryDarkGrayishBlue2'}`}>
           <div className="divide-y">
             <Listado
                   
@@ -95,6 +96,7 @@ function App() {
                   active={active}
                   completed={completed}
                   all={all}
+                  darkModeActivo={darkModeActivo}
                 
                  
             />
@@ -111,8 +113,8 @@ function App() {
       {list.length > 0 && (
         <>
           {/**Borones para filtrar entre las tareas */}
-          <div className="flex justify-center gap-x-10 text-gray-500 hacia-abajo bg-white contenedor shadow-xl py-5 rounded-lg hacia-abajo">
-              <button className={all ? 'text-blue-600 font-semibold' : 'font-semibold'} value='all' onClick={cambiarContenido} >All</button>
+          <div className={`flex justify-center gap-x-10 text-gray-500 hacia-abajo bg-white contenedor shadow-xl py-5 rounded-lg hacia-abajo ${darkModeActivo && 'bg-VeryDarkGrayishBlue2'}`}>
+              <button className={all ? 'text-blue-600 font-semibold' : 'font-semibold '} value='all' onClick={cambiarContenido} >All</button>
               <button className={active ? 'text-blue-600 font-semibold' : 'font-semibold'} value='active' onClick={cambiarContenido} >Active</button>
               <button className={completed ? 'text-blue-600 font-semibold' : 'font-semibold'} value='completed' onClick={cambiarContenido} >Completed</button>
           </div>

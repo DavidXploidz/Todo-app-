@@ -2,7 +2,7 @@ import cross from '../images/icon-cross.svg'
 import iconCheck from '../images/icon-check.svg'
 
 
-const Listado = ({ items, removeItem, checked, active, completed, all}) => {
+const Listado = ({ items, removeItem, checked, active, completed, all, darkModeActivo}) => {
 
   return (
     <>
@@ -16,16 +16,21 @@ const Listado = ({ items, removeItem, checked, active, completed, all}) => {
             <div className='flex justify-start items-center gap-x-10'>
                 {estado ? (
                     <div className='bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full p-3' onClick={() => checked(id)}>
-                        <img src={iconCheck} alt="icon check" className='h-5 w-5'   />
+                        <img src={iconCheck} alt="icon check" className={`h-5 w-5 `}   />
                     </div>
                 ) : (
                     <input 
                         type="radio" 
-                        className='h-10 w-10 cursor-pointer'  
+                        className={`relative h-10 w-10 cursor-pointer bg-black text-black `} 
                         onClick={() => checked(id)}
                     />
                 )}
-                <p className={`text-VeryDarkGrayishBlue ${estado && 'line-through text-LightGrayishBlue'}`}>{title}</p>
+                {darkModeActivo ? (
+                    <p className={`text-LightGrayishBlue2   ${estado && 'line-through text-VeryDarkGrayishBlue  '}  `}>{title}</p>
+                ): (
+                    <p className={`text-VeryDarkGrayishBlue ${estado && 'line-through text-LightGrayishBlue  '}  `}>{title}</p>
+                )}
+                
             </div>
             <img 
                 src={cross} alt="Icon cross" 
@@ -51,7 +56,11 @@ const Listado = ({ items, removeItem, checked, active, completed, all}) => {
                           onClick={() => checked(id)}
                       />
                   )}
-                  <p className={`text-VeryDarkGrayishBlue ${estado && 'line-through text-LightGrayishBlue'}`}>{title}</p>
+                {darkModeActivo ? (
+                    <p className={`text-LightGrayishBlue2   ${estado && 'line-through text-VeryDarkGrayishBlue  '}  `}>{title}</p>
+                    ): (
+                    <p className={`text-VeryDarkGrayishBlue ${estado && 'line-through text-LightGrayishBlue  '}  `}>{title}</p>
+                )}
               </div>
               <img 
                   src={cross} alt="Icon cross" 
@@ -76,7 +85,11 @@ const Listado = ({ items, removeItem, checked, active, completed, all}) => {
                         onClick={() => checked(id)}
                     />
                 )}
-                <p className={`text-VeryDarkGrayishBlue ${estado && 'line-through text-LightGrayishBlue'}`}>{title}</p>
+                {darkModeActivo ? (
+                    <p className={`text-LightGrayishBlue2   ${estado && 'line-through text-VeryDarkGrayishBlue '}  `}>{title}</p>
+                ): (
+                    <p className={`text-VeryDarkGrayishBlue ${estado && 'line-through text-LightGrayishBlue  '}  `}>{title}</p>
+                )}
             </div>
             <img 
                 src={cross} alt="Icon cross" 

@@ -53,7 +53,7 @@ body{
 }
 @media (min-width: 1440px) {
   .contenedor{
-      max-width: 120rem;
+      max-width: 60rem;
       width: 95%;
       margin: 0 auto;
   }
@@ -61,17 +61,50 @@ body{
 
 /*Header Component*/
 .header{
-  position: relative;
   background-image: url(./images/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: contain;
   height: 40rem;
   width: 100%;
-  z-index: -1;
+}
+@media (min-width: 768px) {
+  .header{
+    background-image: url(./images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40rem;
+    width: 100%;
+  }
+}
+.header-dark{
+  background-image: url(./images/bg-mobile-dark.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 40rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .header-dark{
+    background-image: url(./images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40rem;
+    width: 100%;
+  }
 }
 .hacia-arriba{
   margin-top: -30rem;
 }
+@media (min-width: 768px) {
+  .hacia-arriba{
+    margin-top: -20rem;
+  }
+}
 .hacia-abajo{
   margin-top: 2rem;
+}
+@media (min-width: 768px) {
+  .hacia-abajo{
+    margin-top: 5rem;
+  }
 }
